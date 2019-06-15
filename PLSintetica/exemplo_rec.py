@@ -19,7 +19,9 @@ ll.append(obj)
 
 
 PL = []
-PL.append(('art',()))
+# =============================================================================
+# PL.append(('art',()))
+# =============================================================================
 
 alineas1 = ('texto1','texto2','texto3')
 alineas2 = ('texto1','texto2')
@@ -30,4 +32,5 @@ inciso2 = ('textoinciso2', alineas2)
 paragrafo = ('textoPar',inciso1,inciso2 )
 
 art = ('textoArt', paragrafo )
+PL.append(art)
 print(art[1][0])

@@ -8,6 +8,11 @@ import re
 
 IndexList = []
 PlObj = []
+PlArt = []
+PlPar = []
+PlInc = []
+PlAli = []
+
 with open ('teste/MPV870_txt_site.txt', 'r', encoding = 'utf-8') as pl:
     texto = pl.read()
     NvAtual = 0
@@ -17,8 +22,8 @@ with open ('teste/MPV870_txt_site.txt', 'r', encoding = 'utf-8') as pl:
         
         ArtSearch = re.search(r'(\nArt\. \dº|\nArt\. \d+)',texto)
         ParSearch = re.search(r'§ \d',texto)
-        IncSearch = re.search(r'[MDCLXVI]+\ -',texto)
         AliSearch = re.search(r'(\n[a-z]\)|\n[a-z][a-z]\))',texto)
+        IncSearch = re.search(r'[MDCLXVI]+\ -',texto)
         
         if IndexList.count(None) == 1:
             print("acabou")
@@ -51,9 +56,11 @@ with open ('teste/MPV870_txt_site.txt', 'r', encoding = 'utf-8') as pl:
             print('alinea:',AliSearch[0])
             print(texto[:AliSearch.start()])
             texto = texto[AliSearch.end():]
+            
         
         if NvAtual != 0 and NvPrx ==0:
-            PlObj.append()
+            print('subiu de nível')
+            
 
             
     
