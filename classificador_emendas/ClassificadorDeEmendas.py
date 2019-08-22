@@ -15,7 +15,6 @@ from joblib import dump
 def cria_pd_df(ner_out_path):
     # função deve receber o caminho para uma pasta contendo os arquivos de
     # saída do segmentador (tagFiles)
-    print("teste")
     tagList = ["I-","E-","B-"]
     files = []
     for dirpath, dirnames, filenames in os.walk(ner_out_path):
@@ -70,8 +69,4 @@ def cria_modelo(dataframe):
     dump(clf,"classificador_de_emendas")
     return(clf)
 
-# =============================================================================
-# def __init__(main):
-#     emendas = cria_pd_df("./dados/tagFiles")
-#     classificador = cria_modelo(emendas)
-# =============================================================================
+    
