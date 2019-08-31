@@ -1,0 +1,40 @@
+Em decorrência , ficam suprimidos os seguintes dispositivos da Medida Provisória 870 , de 2019 : - incisos XXXI a XXXVI do art . 31 ; - incisos V , XXVII , XXIX e XXX e o parágrafo único do art . 32 ; - a “ expressão Ministério do Trabalho ” constante do § 2º do art . 55 ; - as alíneas “ k ” e “ ai ” , do inciso I e alínea “ u ” do inciso I do art . 56 ; - inciso I , do art . 57 ; - alínea “ c ” , do inciso VI , do art . 59 ; - art . 83 ;
+
+!@#$%
+
+inciso_xxxi
+inciso_xxxvi
+artigo_31
+inciso_v
+inciso_xxvii
+inciso_xxix
+artigo_32
+paragrafo_2
+artigo_55
+alinea_k
+alinea_ai
+inciso_i
+alinea_u
+inciso_i
+artigo_56
+inciso_i
+artigo_57
+alinea_c
+inciso_vi
+artigo_59
+artigo_83
+
+%$#@!
+__INICIO_AGREGADOR__
+('', '', 'inciso_xxxi', '')
+('artigo_31', '', 'inciso_xxxvi', '')
+('', '', 'inciso_v', '')
+('', '', 'inciso_xxvii', '')
+('artigo_32', '', 'inciso_xxix', '')
+('artigo_55', 'paragrafo_2', 'inciso_xxix', '')
+('', '', '', 'alinea_k')
+('', '', 'inciso_i', 'alinea_ai')
+('artigo_56', '', 'inciso_i', 'alinea_u')
+('artigo_57', '', 'inciso_i', 'alinea_u')
+('artigo_59', '', 'inciso_vi', 'alinea_c')
+__FIM_AGREGADOR__

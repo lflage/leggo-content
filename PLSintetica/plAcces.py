@@ -9,6 +9,7 @@ import plObjFunc as pl
 
 mpv = pl.PlObjCreate('./teste/mpv870/MPV870_txt_site.txt')
 
+###
 artigo = input()
 paragrafo = input()
 inciso = input()
@@ -20,13 +21,15 @@ for i in artigo, paragrafo, inciso, alinea:
         lista_in.append(int(i))
     except:
         lista_in.append(None)
+###
 
-
-# =============================================================================
-# try:
-#     map()
-# for i in niveis:
-# =============================================================================
+        
+with open("../parser_itens/testes_lucas/7909406.pdf_teor.tags",
+          encoding = "utf8", mode = 'r') as emenda:
+    entidades = emenda.read().split("!@#$%")[1]
+    
+           
+    
     
 if artigo and paragrafo and inciso and alinea:
     try:

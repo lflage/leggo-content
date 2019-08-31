@@ -5,8 +5,12 @@ Created on Thu Jul 11 11:02:36 2019
 @author: lucas
 """
 import re
+import string
+import ClassificadorDeEmendas
+
 def PlObjCreate(path):
-    
+
+
     
 # Listas de Artigos, Listas de Parágrafos, listas de incisos, listas de alineas
     PlObj = []
@@ -115,4 +119,118 @@ def PlObjCreate(path):
         PlObj.append(PlArt)
     return(PlObj)
             
+def num_to_ali(nr):
+    letra = ''
+    if float(nr/25) > 1:
+        for i in range(nr//25):
+            letra += string.ascii_lowercase[i]
+    letra += string.ascii_lowercase[(nr%26)]
+    return letra
+
+def ali_to_num(ali):
+    if len(ali) == 1:
+        valor = string.ascii_lowercase.find(ali)
+        return valor + 1
+    if len(ali) == 2:
+        valor = 27 + string.ascii_lowercase.find(ali[1])
+        return valor
+    
+def flatten(container):
+    for i in container:
+        if isinstance(i, (list,tuple)):
+            for j in flatten(i):
+                yield j
+        else:
+            yield i
+    
+
+    
+def int_to_roman(entrada):
+    """
+    Converte números inteiros em números romanos. Retirado de Python Cookbook
+    
+    """
+    if not isinstance(entrada, type(1)):
+        raise (TypeError, "expected integer, got %s" % type(entrada))
+    if not 0 < entrada < 4000:
+        raise (ValueError, "Argument must be between 1 and 3999")
+    ints = (1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1)
+    nums = ('M', 'CM', 'D', 'CD','C', 'XC','L','XL','X','IX','V','IV','I')
+    result = []
+    for i in range(len(ints)):
+        count = int(entrada / ints[i])
+        result.append(nums[i] * count)
+        entrada -= ints[i] * count
+    return ''.join(result)
+
+
+def roman_to_int(entrada):
+    """ 
+    Converte números romanos para inteiros. Retirado de Python Cookbook
+    """
+    if not isinstance(entrada, type("")):
+        raise (TypeError, "expected string, got %s" % type(entrada))
+    entrada = entrada.upper(  )
+    nums = {'M':1000, 'D':500, 'C':100, 'L':50, 'X':10, 'V':5, 'I':1}
+    sum = 0
+    for i in range(len(entrada)):
+        try:
+            value = nums[entrada[i]]
+            # If the next place holds a larger number, this value is negative
+            if i+1 < len(entrada) and nums[entrada[i+1]] > value:
+                sum -= value
+            else: sum += value
+        except KeyError:
+            raise (ValueError, 'entrada is not a valid Roman numeral: %s' % entrada)
+    # easiest test for validity...
+    if int_to_roman(sum) == entrada:
+        return sum
+    else:
+        raise (ValueError, 'entrada is not a valid Roman numeral: %s' % entrada)
+        
+def nested_lookup(nlst, idexs):
+    if len(idexs) == 1:
+        return nlst[idexs[0]]
+    return nested_lookup(nlst[idexs[0]], idexs[1::])
+
+def pl_to_txt(plobj,out_name = 'obj_out.txt'):
+    with open(out_name, mode = 'w', encoding = "utf8") as pl_txt:
+        for i, titulo in enumerate(plobj):
+            if type(titulo) == str:
+                pl_txt.write(titulo)
+            else:
+                for j, lista_de_paragrafos in enumerate(titulo):
+                    if j == 0:
+                        pass
+                    else:
+                        for k, sublista in enumerate(lista_de_paragrafos):
+                            for m, paragrafo in enumerate(sublista):
+                                if type(paragrafo) == str:
+                                    if k == 0:
+                                        pl_txt.write('\nArt. {} {}\n'.format(j,paragrafo))                            
+                                    else:
+                                        pl_txt.write('\n§{} '.format(k) + paragrafo + '\n')
+                                else:
+                                    for n, lista_de_inciso in enumerate(paragrafo):
+                                        if n == 0:
+                                            pass
+                                        else:
+                                            for o, inciso in enumerate(lista_de_inciso):
+                                                if type(inciso) == str:
+                                                    pl_txt.write('\n{} - '.format(int_to_roman(n)) + inciso + '\n')
+                                                else:
+                                                    for l, lista_de_alinea in enumerate(inciso):
+                                                        if l == 0:
+                                                            pass
+                                                        else:
+                                                            pl_txt.write('\n{}) '.format(num_to_ali(l-1)) + lista_de_alinea + '\n')
+            
+
+
+
+
+
+
+
+
             

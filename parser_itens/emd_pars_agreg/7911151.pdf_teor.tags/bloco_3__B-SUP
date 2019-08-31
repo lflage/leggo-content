@@ -1,0 +1,39 @@
+III – Suprima-se , os seguintes dispositivos : a ) O inciso XXIV do art . 23 ; b ) O inciso XV e o §3º do art . 24 ; c ) Os incisos XXI a XXV do art . 31. d ) O incisos XXVIII a XXX do art . 31 ; e ) O inciso VI e o inciso XXII do art . 37 ; f ) A alínea “ k ” do inciso I do art . 56 ; g ) A Alínea “ ai ” do inciso I do art . 56 ; h ) O art . 83 ;
+
+!@#$%
+
+inciso_xxiv
+artigo_23
+inciso_xv
+paragrafo_3
+artigo_24
+inciso_xxi
+inciso_xxv
+artigo_31
+inciso_xxviii
+inciso_xxx
+artigo_31
+inciso_vi
+inciso_xxii
+artigo_37
+alinea_k
+inciso_i
+artigo_56
+alinea_ai
+inciso_i
+artigo_56
+artigo_83
+
+%$#@!
+__INICIO_AGREGADOR__
+('artigo_23', '', 'inciso_xxiv', '')
+('artigo_24', 'paragrafo_3', 'inciso_xv', '')
+('', '', 'inciso_xxi', '')
+('artigo_31', '', 'inciso_xxv', '')
+('', '', 'inciso_xxviii', '')
+('artigo_31', '', 'inciso_xxx', '')
+('', '', 'inciso_vi', '')
+('artigo_37', '', 'inciso_xxii', '')
+('artigo_56', '', 'inciso_i', 'alinea_k')
+('artigo_56', '', 'inciso_i', 'alinea_ai')
+__FIM_AGREGADOR__

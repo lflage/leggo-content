@@ -1,0 +1,13 @@
+Esse é um teste. Adiciona-se aos artigos 1, 2, 3 e 4 alguma coisa no paragrafo 5, 6 e 7 e tal §4o e tal e etc.
+Além disso, fazendo um teste, inciso xiv, xi, xiii. E também inc.xxi. Assim finalizado. Peixe, peix. pix. ix.
+
+!@#$%
+
+artigo_1
+paragrafo_2
+artigo_2
+paragrafo_0
+inciso_2
+
+
+%$#@!
