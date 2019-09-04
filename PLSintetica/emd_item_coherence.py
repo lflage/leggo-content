@@ -66,19 +66,19 @@ def proc_agreg_out(agr_out):
     return lista_indices
         
 
-mpv = pl.PlObjCreate('./teste/mpv870/MPV870_txt_site.txt')
-emd_dir_path = '../parser_itens/emd_pars_agreg'
-modelPath = '../coherence/languagemodel/vectors_new.bin'
+# =============================================================================
+# mpv = pl.PlObjCreate('./teste/mpv870/MPV870_txt_site.txt')
+# emd_dir_path = '../parser_itens/emd_pars_agreg'
+# modelPath = '../coherence/languagemodel/vectors_new.bin'
+# =============================================================================
 
 
-# =============================================================================
-# # Caminho para o arquivo .txt do inteiro teor     
-# mpv = pl.PlObjCreate(sys.argv[1])
-# # Caminho para a pasta contendo as emendas tratadas pelo agregador
-# emd_dir_path = sys.argv[2]
-# # Caminho para o modelo .bin treinado do Skipgram
-# modelPath = sys.argv[3]
-# =============================================================================
+# Caminho para o arquivo .txt do inteiro teor     
+mpv = pl.PlObjCreate(sys.argv[1])
+# Caminho para a pasta contendo as emendas tratadas pelo agregador
+emd_dir_path = sys.argv[2]
+# Caminho para o modelo .bin treinado do Skipgram
+modelPath = sys.argv[3]
 
 stp_wrd = nltk.download('stopwords')
 tokenizer = CountVectorizer(stop_words=stp_wrd).build_tokenizer()
