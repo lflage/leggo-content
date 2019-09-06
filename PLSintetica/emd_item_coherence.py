@@ -54,7 +54,7 @@ def proc_agreg_out(agr_out):
                 pl_index[2] = 1
 
             # Retira valores None e inserir indices para correta localização
-            pl_index = list(filter(None, pl_index))
+            pl_index = [i for i in pl_index if i is not None]
             if len(pl_index) == 4:
                 pl_index.insert(2, 1)
                 pl_index.insert(-1, 1)
@@ -102,23 +102,27 @@ for file, tipo_emenda in zip(files, tipos_de_emenda):
         texto_emd = tokenizer(unidecode(emd.split("!@#$%")[0].lower()))
 
         # Processa emendas pós agregador
+
         lista_de_itens_alterados = proc_agreg_out(emd)
 
         for alteracao in lista_de_itens_alterados:
-            if tipo_emenda == "MOD":
+            if tipo_emenda == 'MOD':
                     # Procura posição no plObj
                     try:
                         texto_pl = pl.nested_lookup(mpv[1], alteracao)
-                    except:
-                        print("Elemento não encontrado")
-                    # Cria uma string inteira com todos os textos na
-                    # posição encontrada
-                    texto_pl = ' '.join(list(pl.flatten(texto_pl))).lower()
 
-                    texto_pl = tokenizer(unidecode(texto_pl))
+                        # Cria uma string inteira com todos os textos na
+                        # posição encontrada
+                        texto_pl = ' '.join(list(pl.flatten(texto_pl))).lower()
+                        texto_pl = tokenizer(unidecode(texto_pl))
 
-                    dist = model.wmdistance(texto_pl, texto_emd)
-                    to_df_row.append([file, ' '.join(str(alteracao)), dist])
-
+                        alteracao = [str(i) for i in alteracao]
+                        dist = model.wmdistance(texto_pl, texto_emd)
+                        to_df_row.append([file, ' '.join(str(alteracao)), dist])
+                        
+                    except IndexError:
+                        print("Elemento não encontrado {}, {}".format(file, ' '.join([str(i) for i in alteracao])))
+                    
+                
 df = pd.DataFrame(to_df_row)
 df.to_csv('df_csv.csv')
