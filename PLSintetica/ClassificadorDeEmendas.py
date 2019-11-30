@@ -67,7 +67,7 @@ def cria_modelo(dataframe):
     ros = RandomOverSampler(random_state=0)
     X_resampled, y_resampled = ros.fit_resample(X, y)
     
-    clf = SVC(gamma = 'auto')
+    clf = SVC(gamma = 'auto', random_state=42)
     clf.fit(X_resampled,y_resampled)
     pipeline = Pipeline([('vectorizer', vectorizer), ('clf_emend', clf)])
     dump(pipeline,"emend_clf_pipe")
